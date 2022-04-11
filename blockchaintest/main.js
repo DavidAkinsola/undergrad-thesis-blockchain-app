@@ -15,10 +15,20 @@ class Block{
         this.data = data;
         this.previousHash = previousHash;
         this.hash = this.calculateHash();
+        this.nonce = 0;
     }
 //uses SHA256 to generate the hash based from block info
     calculateHash(){
-        return SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data)).toString();
+        return SHA256(this.index + this.previousHash + this.timestamp + JSON.stringify(this.data)+ this.nonce).toString();
+    }
+
+    mineBlock(difficulty){
+        while(this.hash.substring(0,difficulty) !== Array(difficulty + 1).join("0")){
+            this.nonce++;
+            this.hash = this.calculateHash();
+        }
+
+        console.log("Block mined: " + this.hash);
     }
 }
 
@@ -26,6 +36,7 @@ class Blockchain{
     //this.chain stores the array of blocks
     constructor(){
         this.chain = [this.createGenesisBlock()];
+        this.difficulty = 4;
     }
 //information about the first block - does not point to anything
     createGenesisBlock(){
@@ -40,7 +51,9 @@ class Blockchain{
 //calculate new hash
     addBlock(newBlock){
         newBlock.previousHash = this.getLatestBlock().hash;
-        newBlock.hash = newBlock.calculateHash();
+        //newBlock.hash = newBlock.calculateHash();
+        //above line commented for addition of blockchain proof of work
+        newBlock.mineBlock(this.difficulty);
         this.chain.push(newBlock);
     }
 //checks the validity of the blockchain
@@ -70,11 +83,16 @@ class Blockchain{
 
 //instantiate new blockchain
 let coin = new Blockchain();
+
+console.log("mining block 1...");
 coin.addBlock(new Block(1, "10/04/2017", {amount: 4}));
+console.log("mining block 2...");
 coin.addBlock(new Block(2, "11/04/2017", {amount: 10}));
 //display blockchain
 //console.log(JSON.stringify(coin, null, 4));
 
+
+/*
 //returns true
 console.log("valid?: " + coin.isChainValid());
 //tamper with blockchain
@@ -83,6 +101,8 @@ coin.chain[1].data = {amount: 100};
 coin.chain[1].hash = coin.chain[1].calculateHash();
 //returns false - blockchain has been tampered
 console.log("valid?: " + coin.isChainValid());
+*/
+
 
 /*
 video ref 
