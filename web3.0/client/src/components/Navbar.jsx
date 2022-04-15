@@ -37,7 +37,7 @@ const Navbar = () => {
                     <ul
                         className="z-10 fixed top-0 -right-2 p-3 w-[70vw] h-screen shadow-2x1 
                         md:hidden list-none flex flex-col justify-start items-end rounded-md 
-                        blue-glassmorphism text-white animate-slide-in"
+                        white-glassmorphism text-white animate-slide-in"
                     >
                         <li className="text-xl w-full my-2">
                             <AiOutlineClose onClick={() => setToggleMenu(false)} />
