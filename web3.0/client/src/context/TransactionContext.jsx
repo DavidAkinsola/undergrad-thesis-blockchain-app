@@ -50,6 +50,7 @@ export const TransactionProvider = ({ children }) => {
             console.log(error);
         }
     }
+    
 
     const checkIfWalletIsConnected = async () =>{
         try {
@@ -60,6 +61,7 @@ export const TransactionProvider = ({ children }) => {
             if(accounts.length){
                 setCurrentAccount(accounts[0]);
                 getAllTransactions();
+
             }else{
                 console.log("No accounts found");
             } 
@@ -128,7 +130,7 @@ export const TransactionProvider = ({ children }) => {
 
             setTransactionCount(transactionCount.toNumber());
 
-            window.reload();
+            location.reload();
 
         } catch (error) {
             console.log(error);
