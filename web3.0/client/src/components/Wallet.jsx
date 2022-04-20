@@ -2,6 +2,8 @@ import React, {useContext} from "react";
 
 import {SiEthereum} from "react-icons/si";
 
+import { Navigation } from ".";
+
 
 import {TransactionContext} from "../context/TransactionContext";
 import {Loader} from ".";
@@ -33,6 +35,8 @@ const Wallet = () => {
     }
 
     return(
+        <div>
+            <Navigation/>
         <div className="flex w-full justify-center items-center">
             <div className="flex md:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
                 <div className="flex flex-1 justify-start flex-col md:mr-10">
@@ -114,6 +118,7 @@ const Wallet = () => {
                 </div>
             </div>
 
+        </div>
         </div>
     )   
 }

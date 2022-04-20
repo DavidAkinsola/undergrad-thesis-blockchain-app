@@ -1,4 +1,4 @@
-import {TransactionNavbar, Wallet, Navigation, Footer, SignIn, Transactions} from "./components";
+import {TransactionNavbar, Wallet, Navigation, Footer, Home, Transactions} from "./components";
 
 import {BrowserRouter as Router} from "react-router-dom";
 
@@ -8,8 +8,10 @@ const App = () => {
     <div className="min-h-screen">
       <div className="background">
         <Navigation/>
-        <SignIn/>
+        <Home/>
         <Transactions/>
+        <Wallet/>
+        
         
       </div>
       

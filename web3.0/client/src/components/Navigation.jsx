@@ -1,16 +1,24 @@
-import {React, useState} from "react";
+import {React, useContext} from "react";
 import {Link} from "react-router-dom"
 
 import logo from '../../images/apt-logo.png';
-
+import { TransactionContext } from "../context/TransactionContext";
+import { shortenAddress } from "../utils/shortenAddress";
 
 const Navigation = () => {
-    //const [toggleMenu, setToggleMenu] = useState(false);
+    const {currentAccount} = useContext(TransactionContext);
     return(
-        <nav className="w-full flex md:justify-center justify-between items-center p-2 transaction-navbar">
-            <div className="md:flex-[0.5] flex-initial justify-center items-center">
-                <img src={logo} alt="logo" className="w-32 cursor-pointer bg-cover display-content" />
+        <nav className="w-full flex md:justify-center justify-between items-center p-5 navbar">
+            
+            <Link to="/">
+            <div className="md:flex-[0.5] flex-initial justify-start display-content items-center">
+                <h1 className="cgothic text-5xl text-black font-bold  md:w-96 w-24 cursor-pointer">
+                    apt.
+                </h1>
+                
+
             </div>
+            </Link>
 
             <ul className="flex list-none flex-row justify-between items-center flex-initial cgothic">
                 <Link to="/" 
@@ -23,10 +31,19 @@ const Navigation = () => {
                         Dashboard
                 </Link>
 
-                <Link to="/logreg" 
-                    className="text-white md:text-base text-xs bg-[#000000] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#333]">
-                        Sign In
-                </Link>
+                {currentAccount ?(
+                    <Link to="/wallet" 
+                        className="text-white md:text-2xs text-xs bg-[#000000] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#333]">
+                            Wallet <p className="text-[#ff0">{shortenAddress(currentAccount)}</p>
+                    </Link>
+                ) : (
+                    <Link to="/wallet" 
+                        className="text-white md:text-base text-xs bg-[#000000] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#333]">
+                            Connect Wallet
+                    </Link>
+                )}
+
+                
                 
                 
             </ul>

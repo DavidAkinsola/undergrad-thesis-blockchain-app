@@ -1,5 +1,5 @@
 import React, {useContext} from "react";
-import {TransactionNavbar, Wallet} from "./";
+import {Navigation} from "./";
 
 
 import { TransactionContext } from "../context/TransactionContext";
@@ -60,8 +60,35 @@ const Transactions = () => {
     
     return(
         <div>
-            <TransactionNavbar/>
-            <Wallet/>
+        <Navigation/>
+        <div className="flex w-full justify-center items-center">
+            <div className="flex md:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
+                <div className="flex flex-1 justify-start flex-col md:mr-10">
+                    <h1 className="text-3xl sm:text-5xl text-black py-1">
+                        This is your dashboard
+                    </h1>
+                    <p className="text-left mt-5 text-black font-light md:w-9/12 w-11/12 text-base">
+                        Please make sure you have the correct address with which you want to send cryptocurrency
+                    </p>
+                   
+                    <p className="text-left mt-5 text-black font-light md:w-9/12 w-11/12 text-xs">
+                        Insert the addres that you are sending money to into <em>Address To</em>
+                        <br /><br />
+                        Insert the amount of Ether you want to send into <em>Amount (ETH)</em>
+                        <br /><br />
+                        <em>Keyword</em> - this is a identifier for your transaction. It can be [Rent] or [Auction] or [Deal]
+                        <br /><br />
+                        you can also send your personal message through your transaction by entering in via <em>Message</em>
+                    </p>
+
+                </div>
+                
+                
+
+                
+            </div>
+        </div>
+        
         <div className="flex w-full justify-center items-center 2xl:px-20 bg-[#ddd]">
             <div className="flex flex-col md:py-12 py-12 px-4">
                 {currentAccount? (

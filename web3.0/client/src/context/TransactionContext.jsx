@@ -18,6 +18,7 @@ const getEthereumContract = () => {
 export const TransactionProvider = ({ children }) => {
 
     const [currentAccount, setCurrentAccount] = useState("");
+    const [currentBalance, setCurrentBalance] = useState("");
     const [formData, setFormData] = useState({addressTo:"", amount:"", keyword:"", message:""});
 
     const [isLoading, setIsLoading] = useState(false);
@@ -57,7 +58,7 @@ export const TransactionProvider = ({ children }) => {
            if(!ethereum) return alert("Please Install Metamask");
 
             const accounts = await ethereum.request({method: "eth_accounts"});
-
+            
             if(accounts.length){
                 setCurrentAccount(accounts[0]);
                 getAllTransactions();
