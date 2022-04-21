@@ -12,11 +12,9 @@ const Navigation = () => {
             
             <Link to="/">
             <div className="md:flex-[0.5] flex-initial justify-start display-content items-center">
-                <h1 className="cgothic text-5xl text-black font-bold  md:w-96 w-24 cursor-pointer">
+                <h1 className="cgothic text-5xl text-black hover:text-[#111] font-bold  md:w-96 w-24 cursor-pointer">
                     apt.
                 </h1>
-                
-
             </div>
             </Link>
 
@@ -31,14 +29,19 @@ const Navigation = () => {
                         Dashboard
                 </Link>
 
+                <Link to="/transactions" 
+                    className="mx-4 cursor-pointer text-black hover:text-[#fff] ">
+                        Transactions
+                </Link>
+
                 {currentAccount ?(
                     <Link to="/wallet" 
-                        className="text-white md:text-2xs text-xs bg-[#000000] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#333]">
+                        className="text-white md:text-2xs text-xs bg-[#000] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#333] ">
                             Wallet <p className="text-[#ff0">{shortenAddress(currentAccount)}</p>
                     </Link>
                 ) : (
                     <Link to="/wallet" 
-                        className="text-white md:text-base text-xs bg-[#000000] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#333]">
+                        className="text-white md:text-base text-xs bg-[#000000] py-2 px-7 mx-4 rounded-full cursor-pointer hover:bg-[#fff] hover:text-[#770]">
                             Connect Wallet
                     </Link>
                 )}

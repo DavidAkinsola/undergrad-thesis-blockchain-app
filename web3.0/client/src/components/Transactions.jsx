@@ -1,4 +1,6 @@
 import React, {useContext} from "react";
+import {SiEthereum} from "react-icons/si";
+
 import {Navigation} from "./";
 
 
@@ -65,27 +67,36 @@ const Transactions = () => {
             <div className="flex md:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
                 <div className="flex flex-1 justify-start flex-col md:mr-10">
                     <h1 className="text-3xl sm:text-5xl text-black py-1">
-                        This is your dashboard
+                        This is your transaction
                     </h1>
-                    <p className="text-left mt-5 text-black font-light md:w-9/12 w-11/12 text-base">
-                        Please make sure you have the correct address with which you want to send cryptocurrency
-                    </p>
-                   
-                    <p className="text-left mt-5 text-black font-light md:w-9/12 w-11/12 text-xs">
-                        Insert the addres that you are sending money to into <em>Address To</em>
-                        <br /><br />
-                        Insert the amount of Ether you want to send into <em>Amount (ETH)</em>
-                        <br /><br />
-                        <em>Keyword</em> - this is a identifier for your transaction. It can be [Rent] or [Auction] or [Deal]
-                        <br /><br />
-                        you can also send your personal message through your transaction by entering in via <em>Message</em>
-                    </p>
+                    
 
                 </div>
                 
                 
 
                 
+            </div>
+        </div>
+
+        <div className="p-3 justify-end items-start flex-col rounded-xl h-40 sm:w-72 w-full my-5 m-auto bg-[#000000]">
+            <div className="flex justify-between flex-col w-full h-full">
+                <div className="flex justify-between items-start">
+                    <div className="w-10 h-10 rounded-full border-2 border-white flex justify-center items-center">
+                        <SiEthereum fontSize={21} color="#fff" />
+                    </div>
+                    
+                </div>
+                <div>
+                    <p className="text-[#ffff00] font-light text-base">
+                        {currentAccount ?  shortenAddress(currentAccount)
+                        : "Connect to your metamask account"
+                        }
+                    </p>
+                    <p className="text-white font-semibold text-lg mt-1">
+                        Ethereum
+                    </p>
+                </div>
             </div>
         </div>
         
@@ -119,6 +130,7 @@ const Transactions = () => {
 
             </div>
         </div>
+
         </div>
     )   
 }

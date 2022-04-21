@@ -1,16 +1,16 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {Navigation} from "./";
 
+const Dashboard = () => {
 
-const Home =() => {
-    return (
+    return(
         <div>
             <Navigation/>
         <div className="flex w-full justify-center items-center">
             <div className="flex md:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
                 <div className="flex flex-1 justify-start flex-col md:mr-10">
                     <h1 className="text-3xl sm:text-5xl text-black py-1 cgothic">
-                        Welcome to apt.
+                        This is your Dashboard
                     </h1>
                     <p className="text-left mt-5 text-black font-light md:w-9/12 w-11/12 text-base">
                        a platform for you to make real estate payments on the blockchain.
@@ -29,7 +29,7 @@ const Home =() => {
                 </div>
 
                 <div className="flex flex-1 justify-start flex-col md:mr-10">
-                    
+
                     <p className="text-left mt-5 text-black font-light md:w-9/12 w-11/12 text-xs">
                         Insert the addres that you are sending money to into <em>Address To</em>
                         <br /><br />
@@ -44,9 +44,8 @@ const Home =() => {
                 
             </div>
         </div>
-        
         </div>
-    )
+    );   
 }
 
-export default Home;
+export default Dashboard;

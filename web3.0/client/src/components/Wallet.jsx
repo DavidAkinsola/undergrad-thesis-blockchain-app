@@ -41,7 +41,7 @@ const Wallet = () => {
             <div className="flex md:flex-row flex-col items-start justify-between md:p-20 py-12 px-4">
                 <div className="flex flex-1 justify-start flex-col md:mr-10">
                     <h1 className="text-3xl sm:text-5xl text-black py-1">
-                        Send Transactions Here
+                        Make Rental payments and Transactions
                     </h1>
                     <p className="text-left mt-5 text-black font-light md:w-9/12 w-11/12 text-base">
                         Please make sure you have the correct address with which you want to send cryptocurrency
@@ -95,7 +95,7 @@ const Wallet = () => {
                         <div className="h-[1px] w-full bg-black my-2"></div>
                         <Input placeholder = "Amount (ETH)" name="amount" type="number" handleChange = {handleChange} />
                         <div className="h-[1px] w-full bg-black my-2"></div>
-                        <Input placeholder = "Keyword" name="keyword" type="text" handleChange = {handleChange} />
+                        <Input placeholder = "Transaction Keyword" name="keyword" type="text" handleChange = {handleChange} />
                         <div className="h-[1px] w-full bg-black my-2"></div>
                         <Input placeholder = "Message" name="message" type="text" handleChange = {handleChange} />
                         <div className="h-[1px] w-full bg-black my-2"></div>
